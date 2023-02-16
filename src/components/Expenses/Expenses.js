@@ -3,6 +3,7 @@ import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
+import ExpenseChart from "./ExpenseChart";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2020");
@@ -21,6 +22,7 @@ const Expenses = (props) => {
         selected={filteredYear}
         onFilterYear={filterChangeHandler}
       />
+      <ExpenseChart expenses={filteredArr} />
       {filteredArr.length === 0 ? (
         <h2 className="expenses-list__fallback">No Expenses Found</h2>
       ) : (
