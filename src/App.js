@@ -27,17 +27,16 @@ const DUMMY_EXPENSE = [
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSE);
 
-  const addDataToArray = (formData) => {
-    setExpenses((prevExpense) => {
-      return [formData, ...prevExpense];
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
     });
-    console.log(expenses);
   };
 
   return (
     <div>
-      <NewExpense addExpenseData={addDataToArray} />
-      <Expenses item={expenses} />
+          <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />
     </div>
   );
 }
